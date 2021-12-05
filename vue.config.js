@@ -39,12 +39,12 @@ module.exports = {
       errors: false
     },
     proxy: {
-      '/manager': {
-        target: 'http://ykd.o2o.berchina.com:8890/manager', // 线上服务器
+      '/api': {
+        target: 'http://192.168.0.105:3000/api', // 线上服务器
         changeOrigin: true,
         ws: false,
         pathRewrite: {
-          '^/manager': '/'
+          '^/api': '/'
         }
       }
     }
