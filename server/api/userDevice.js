@@ -51,12 +51,19 @@ router.post('/addDevice', (req, res) => {
 router.get('/getDevice', (req, res) => {
   const sql = $sql.device.get
   const params = req.query.device_name
-  console.log(params)
+  console.log('====================================');
+  console.log(`查询参数 ${new Date().toLocaleTimeString()} --> `, params)
+  console.log('====================================');
   conn.query(`${sql} where device_name='${params}'`, (err, result) => {
     if (err) {
-      console.log('查询失败' + err)
+      console.log('====================================');
+      console.log(`查询失败 ${new Date().toLocaleTimeString()} --> ` + err)
+      console.log('====================================');
     }
     if (result) {
+      console.log('====================================');
+      console.log(`查询结果 ${new Date().toLocaleTimeString()} --> `, result[0])
+      console.log('====================================');
       jsonWrite(res, result[0])
     }
   })

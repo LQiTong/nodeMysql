@@ -6,7 +6,7 @@
     "dev": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint",
-    "mysql": "pm2 start server/index.js --watch --name mysql",
+    "mysql-pm2": "pm2 start pm2.config.js",
     "logs": "pm2 log mysql"
   },
   "dependencies": {
