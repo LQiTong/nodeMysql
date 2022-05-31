@@ -27,6 +27,7 @@ module.exports = {
       out_file: './logs/out.log', // 普通日志路径
       error_file: './logs/err.log', // 错误日志路径
       merge_logs: true,
+      autorestart: true,  // 自动重启
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
     },
   ],
