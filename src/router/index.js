@@ -21,6 +21,11 @@ const routes = [{
   path: '/sql',
   name: 'sql',
   component: () => import('@/views/sql.vue')
+},
+{
+  path: '/device',
+  name: 'device',
+  component: () => import('@/views/device.vue')
 }
 ]
 

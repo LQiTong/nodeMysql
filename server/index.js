@@ -1,4 +1,5 @@
-const userApi = require('./api/userApi.js')
+const userApi = require('./api/userApi')
+const deviceApi = require('./api/userDevice')
 // const fs = require('fs')
 // const path = require('path')
 const bodyParser = require('body-parser')
@@ -13,7 +14,8 @@ app.use(bodyParser.json())
 
 // 后端api路由
 app.use('/api/user', userApi)
+app.use('/api/device', deviceApi)
 
 // 监听端口
-app.listen(3000)
-console.log('success listen at port:3000......')
+app.listen(8001)
+console.log('success listen at port:8001......')

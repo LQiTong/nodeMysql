@@ -40,7 +40,7 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: 'http://192.168.0.105:3000/api', // 线上服务器
+        target: 'http://192.168.3.82:8001/api', // 线上服务器
         changeOrigin: true,
         ws: false,
         pathRewrite: {

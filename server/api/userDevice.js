@@ -21,43 +21,43 @@ var jsonWrite = function (res, ret) {
   }
 }
 
-// 增加用户接口
-router.post('/addUser', (req, res) => {
-  const sql = $sql.user.add
+// 增加vid \ token \ deviceName
+router.post('/addDevice', (req, res) => {
+  const sql = $sql.device.add
   const params = req.body
-  console.log(params)
-  conn.query(sql, [params.name, params.age], function (err, result) {
+  console.log('====================================');
+  console.log('req.body --> ', req.body);
+  console.log('====================================');
+  conn.query(sql, [params.vid, params.token, params.deviceName], (err, result) => {
     if (err) {
-      console.log('添加失败' + err)
-      // jsonWrite(res, err)
+      console.log('添加device失败：' + err);
       res.json({
-        code: '1',
+        code: '000001',
         status: '200',
-        message: '操作失败，已存在同名'
+        message: err
       })
     }
     if (result) {
-      // jsonWrite(res, result)
       res.json({
         code: '000000',
         status: '200',
-        message: '操作成功'
+        message: '添加成功'
       })
     }
   })
 })
 
 // 查询用户接口
-router.get('/getUser', (req, res) => {
-  const sql = $sql.user.get
-  // const params = req.body
-  // console.log(params)
-  conn.query(sql, function (err, result) {
+router.get('/getDevice', (req, res) => {
+  const sql = $sql.device.get
+  const params = req.query.device_name
+  console.log(params)
+  conn.query(`${sql} where device_name='${params}'`, (err, result) => {
     if (err) {
-      console.log('添加失败' + err)
+      console.log('查询失败' + err)
     }
     if (result) {
-      jsonWrite(res, result)
+      jsonWrite(res, result[0])
     }
   })
 })
