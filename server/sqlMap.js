@@ -6,7 +6,7 @@ var sqlMap = {
   },
   // 设备
   device: {
-    add: 'insert ignore into device(vid,token,device_name) values(?,?,?)',
+    add: 'REPLACE INTO device(vid,token,device_name) values(?,?,?)',
     get: 'select * from `device`'
   }
 }
