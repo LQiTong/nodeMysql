@@ -29,6 +29,6 @@ module.exports = {
       merge_logs: true,
       autorestart: true,  // 自动重启
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
-    },
+    }
   ],
 };
